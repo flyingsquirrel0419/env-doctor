@@ -70,10 +70,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/env-doctor/env-doctor"
+    "url": "https://github.com/flyingsquirrel0419/env-doctor"
   },
-  "homepage": "https://github.com/env-doctor/env-doctor#readme",
+  "homepage": "https://github.com/flyingsquirrel0419/env-doctor#readme",
   "bugs": {
-    "url": "https://github.com/env-doctor/env-doctor/issues"
+    "url": "https://github.com/flyingsquirrel0419/env-doctor/issues"
   }
 }
