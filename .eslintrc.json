@@ -20,5 +20,5 @@
     "@typescript-eslint/explicit-function-return-type": ["warn", { "allowExpressions": true }],
     "no-console": "off"
   },
-  "ignorePatterns": ["dist/", "node_modules/", "coverage/"]
+  "ignorePatterns": ["dist/", "node_modules/", "coverage/", "tests/fixtures/"]
 }

@@ -17,6 +17,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check NPM_TOKEN
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "::error::NPM_TOKEN secret is not configured."
+            echo "Go to Settings → Secrets and variables → Actions → New repository secret"
+            echo "Name: NPM_TOKEN"
+            echo "Value: Your npm access token (https://www.npmjs.com/settings/tokens)"
+            exit 1
+          fi
+          echo "NPM_TOKEN is configured"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:

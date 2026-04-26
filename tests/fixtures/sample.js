@@ -1,5 +1,3 @@
-import express from 'express';
-
 const port = process.env.PORT;
 const dbUrl = process.env.DATABASE_URL;
 const jwtSecret = process.env.JWT_SECRET;
