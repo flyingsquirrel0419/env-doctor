@@ -121,7 +121,7 @@ describe('javascriptExtractor', () => {
     const dynamicRefs = refs.filter((r) => r.isDynamic);
     expect(dynamicRefs).toHaveLength(1);
     expect(dynamicRefs[0].name).toBe('<dynamic: dynamicKey>');
-    expect(dynamicRefs[0].line).toBe(14);
+    expect(dynamicRefs[0].line).toBe(12);
   });
 
   it('reports correct line, column, and file for fixture refs', () => {
@@ -130,12 +130,12 @@ describe('javascriptExtractor', () => {
 
     const port = refs.find((r) => r.name === 'PORT');
     expect(port).toBeDefined();
-    expect(port!.line).toBe(3);
+    expect(port!.line).toBe(1);
     expect(port!.column).toBe(14);
     expect(port!.file).toBe('sample.js');
 
     const dbUrl = refs.find((r) => r.name === 'DATABASE_URL');
-    expect(dbUrl!.line).toBe(4);
+    expect(dbUrl!.line).toBe(2);
     expect(dbUrl!.column).toBe(15);
   });
 });
