@@ -119,11 +119,7 @@ describe('analyze', () => {
         makeRef('OK_VAR'),
         makeRef('UNDOC_VAR'),
       ],
-      definitions: [
-        makeDef('OK_VAR'),
-        makeDef('UNDOC_VAR'),
-        makeDef('UNUSED_VAR'),
-      ],
+      definitions: [makeDef('OK_VAR'), makeDef('UNDOC_VAR'), makeDef('UNUSED_VAR')],
       documentedNames: new Set(['OK_VAR', 'MISSING1']),
       directory: '.',
       envFiles: ['.env'],
@@ -140,16 +136,8 @@ describe('analyze', () => {
 
   it('sorts variables by status priority (missing > undocumented > unused > ok)', async () => {
     const result = await analyze({
-      references: [
-        makeRef('OK_VAR'),
-        makeRef('MISSING_VAR'),
-        makeRef('UNDOC_VAR'),
-      ],
-      definitions: [
-        makeDef('OK_VAR'),
-        makeDef('UNDOC_VAR'),
-        makeDef('UNUSED_VAR'),
-      ],
+      references: [makeRef('OK_VAR'), makeRef('MISSING_VAR'), makeRef('UNDOC_VAR')],
+      definitions: [makeDef('OK_VAR'), makeDef('UNDOC_VAR'), makeDef('UNUSED_VAR')],
       documentedNames: new Set(['OK_VAR', 'MISSING_VAR']),
       directory: '.',
       envFiles: ['.env'],

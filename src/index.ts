@@ -1,7 +1,11 @@
 export { analyze, loadDocumentedNames } from './analyzer/index.js';
 export type { AnalyzeInput } from './analyzer/index.js';
 export { walkDirectory } from './scanner/walker.js';
-export { extractEnvRefs, getExtractor, getSupportedExtensions } from './scanner/extractors/index.js';
+export {
+  extractEnvRefs,
+  getExtractor,
+  getSupportedExtensions,
+} from './scanner/extractors/index.js';
 export { parseDotenvContent, parseDotenvFile, parseDotenvFiles } from './parser/dotenv.js';
 export type { DotenvParseResult } from './parser/dotenv.js';
 export { generateExample } from './generator/index.js';

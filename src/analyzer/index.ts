@@ -12,7 +12,15 @@ export interface AnalyzeInput {
 }
 
 export async function analyze(input: AnalyzeInput): Promise<AnalysisResult> {
-  const { references, definitions, documentedNames, directory, envFiles, filesScanned, durationMs } = input;
+  const {
+    references,
+    definitions,
+    documentedNames,
+    directory,
+    envFiles,
+    filesScanned,
+    durationMs,
+  } = input;
 
   const usedNames = new Map<string, EnvRef[]>();
   const dynamicWarnings: EnvRef[] = [];
@@ -35,10 +43,7 @@ export async function analyze(input: AnalyzeInput): Promise<AnalysisResult> {
     definedNames.set(def.name, def);
   }
 
-  const allNames = new Set<string>([
-    ...usedNames.keys(),
-    ...definedNames.keys(),
-  ]);
+  const allNames = new Set<string>([...usedNames.keys(), ...definedNames.keys()]);
 
   const variables: VarInfo[] = [];
   let missing = 0;

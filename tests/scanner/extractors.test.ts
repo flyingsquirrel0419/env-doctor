@@ -90,14 +90,7 @@ describe('javascriptExtractor', () => {
   });
 
   it('has correct extensions list', () => {
-    expect(javascriptExtractor.extensions).toEqual([
-      '.js',
-      '.jsx',
-      '.ts',
-      '.tsx',
-      '.mjs',
-      '.cjs',
-    ]);
+    expect(javascriptExtractor.extensions).toEqual(['.js', '.jsx', '.ts', '.tsx', '.mjs', '.cjs']);
   });
 
   it('parses sample.js fixture correctly', () => {

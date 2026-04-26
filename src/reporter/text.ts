@@ -10,22 +10,49 @@ export function formatTextReport(result: AnalysisResult, useColor: boolean): str
         yellow: (s: string) => s,
         green: (s: string) => s,
         gray: (s: string) => s,
-        bold: { red: (s: string) => s, yellow: (s: string) => s, green: (s: string) => s, gray: (s: string) => s },
+        bold: {
+          red: (s: string) => s,
+          yellow: (s: string) => s,
+          green: (s: string) => s,
+          gray: (s: string) => s,
+        },
         dim: (s: string) => s,
       };
 
   const lines: string[] = [];
   const { summary, meta, dynamicAccessWarnings } = result;
 
-  lines.push(
-    `env-doctor v1.0.0  ·  scanned ${meta.filesScanned} files in ${meta.durationMs}ms`,
-  );
+  lines.push(`env-doctor v1.0.0  ·  scanned ${meta.filesScanned} files in ${meta.durationMs}ms`);
   lines.push('');
 
-  const groups: Array<{ status: VarInfo['status']; icon: string; label: string; color: (s: string) => string; description: string }> = [
-    { status: 'missing', icon: '❌', label: 'Missing', color: c.red, description: '← in code, not in .env' },
-    { status: 'undocumented', icon: '⚠️', label: 'Undocumented', color: c.yellow, description: '← in .env, not in .env.example' },
-    { status: 'unused', icon: '🗑️', label: 'Unused', color: c.gray, description: '← in .env, not in code' },
+  const groups: Array<{
+    status: VarInfo['status'];
+    icon: string;
+    label: string;
+    color: (s: string) => string;
+    description: string;
+  }> = [
+    {
+      status: 'missing',
+      icon: '❌',
+      label: 'Missing',
+      color: c.red,
+      description: '← in code, not in .env',
+    },
+    {
+      status: 'undocumented',
+      icon: '⚠️',
+      label: 'Undocumented',
+      color: c.yellow,
+      description: '← in .env, not in .env.example',
+    },
+    {
+      status: 'unused',
+      icon: '🗑️',
+      label: 'Unused',
+      color: c.gray,
+      description: '← in .env, not in code',
+    },
     { status: 'ok', icon: '✅', label: 'OK', color: c.green, description: '' },
   ];
 
@@ -55,7 +82,10 @@ export function formatTextReport(result: AnalysisResult, useColor: boolean): str
     if (group.status === 'ok' && vars.length > 8) {
       const extra = vars.length - 5;
       lines.length -= extra;
-      const names = vars.slice(0, 5).map((v) => v.name).join(', ');
+      const names = vars
+        .slice(0, 5)
+        .map((v) => v.name)
+        .join(', ');
       lines[lines.length - 1] = `     ${names}, ... (and ${extra} more)`;
     }
 
@@ -74,9 +104,15 @@ export function formatTextReport(result: AnalysisResult, useColor: boolean): str
   lines.push('─'.repeat(40));
 
   if (summary.missing > 0) {
-    lines.push(c.red(`Found ${summary.missing} missing variable(s). Run \`env-doctor generate\` to update .env.example`));
+    lines.push(
+      c.red(
+        `Found ${summary.missing} missing variable(s). Run \`env-doctor generate\` to update .env.example`,
+      ),
+    );
   } else if (summary.unused > 0 || summary.undocumented > 0) {
-    lines.push(c.yellow('Some variables need attention. Run `env-doctor generate` to update .env.example'));
+    lines.push(
+      c.yellow('Some variables need attention. Run `env-doctor generate` to update .env.example'),
+    );
   } else {
     lines.push(c.green('All environment variables are in sync! ✨'));
   }

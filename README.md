@@ -186,10 +186,10 @@ CLI Entry (Commander.js)
 ```bash
 git clone https://github.com/env-doctor/env-doctor && cd env-doctor
 npm install
-npm test              # run test suite
+npm run build          # build first (required for integration tests)
+npm test               # run test suite
 npm run test:coverage  # run with coverage report
 npm run lint           # check code style
-npm run build          # build for production
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.

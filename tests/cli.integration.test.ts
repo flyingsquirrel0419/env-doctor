@@ -78,10 +78,10 @@ describe('CLI Integration', () => {
 
     it('exits 0 when all variables are defined', () => {
       expect(() => {
-        execSync(
-          `node ${CLI_PATH} check --dir ${tempDir} --dotenv .env --example .env.example`,
-          { encoding: 'utf-8', timeout: 10000 },
-        );
+        execSync(`node ${CLI_PATH} check --dir ${tempDir} --dotenv .env --example .env.example`, {
+          encoding: 'utf-8',
+          timeout: 10000,
+        });
       }).not.toThrow();
     });
   });
@@ -106,10 +106,10 @@ describe('CLI Integration', () => {
     });
 
     it('creates .env.example file', async () => {
-      execSync(
-        `node ${CLI_PATH} generate --dir ${tempDir} --dotenv .env --example .env.example`,
-        { encoding: 'utf-8', timeout: 10000 },
-      );
+      execSync(`node ${CLI_PATH} generate --dir ${tempDir} --dotenv .env --example .env.example`, {
+        encoding: 'utf-8',
+        timeout: 10000,
+      });
 
       const content = await fs.readFile(path.join(tempDir, '.env.example'), 'utf-8');
       expect(content).toContain('PORT');
@@ -119,10 +119,10 @@ describe('CLI Integration', () => {
     it('preserves existing .env.example entries on re-run', async () => {
       await fs.writeFile(path.join(tempDir, '.env.example'), 'PORT=3000\n');
 
-      execSync(
-        `node ${CLI_PATH} generate --dir ${tempDir} --dotenv .env --example .env.example`,
-        { encoding: 'utf-8', timeout: 10000 },
-      );
+      execSync(`node ${CLI_PATH} generate --dir ${tempDir} --dotenv .env --example .env.example`, {
+        encoding: 'utf-8',
+        timeout: 10000,
+      });
 
       const content = await fs.readFile(path.join(tempDir, '.env.example'), 'utf-8');
       expect(content).toContain('PORT');

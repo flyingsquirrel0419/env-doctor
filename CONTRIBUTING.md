@@ -14,13 +14,13 @@ Thank you for your interest in contributing! 🎉
 
 ```bash
 npm install           # Install dependencies
-npm test              # Run tests
+npm run build         # Build first (required for integration tests)
+npm test              # Run tests (integration tests need dist/)
 npm run test:coverage # Run with coverage report
 npm run lint          # Check code style
 npm run lint:fix      # Auto-fix lint issues
 npm run format        # Format code with Prettier
 npm run typecheck     # Type check without building
-npm run build         # Build for production
 ```
 
 **Requirements:** Node.js 18+
@@ -48,7 +48,7 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/):
 - Keep PRs focused — one feature or fix per PR
 - Include tests for new features
 - Update documentation if needed
-- Ensure all checks pass: `npm run lint && npm run typecheck && npm test && npm run build`
+- Ensure all checks pass: `npm run lint && npm run typecheck && npm run build && npm test`
 
 ## Adding a New Language Extractor
 

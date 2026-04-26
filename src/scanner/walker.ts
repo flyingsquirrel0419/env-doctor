@@ -34,10 +34,7 @@ export async function walkDirectory(
   directory: string,
   options: { ignore?: string[]; pattern?: string } = {},
 ): Promise<WalkResult> {
-  const ignorePatterns = [
-    ...DEFAULT_IGNORE_PATTERNS,
-    ...(options.ignore ?? []),
-  ];
+  const ignorePatterns = [...DEFAULT_IGNORE_PATTERNS, ...(options.ignore ?? [])];
 
   const pattern = options.pattern ?? DEFAULT_SOURCE_PATTERN;
 
@@ -60,7 +57,10 @@ export async function walkDirectory(
 
       // Skip files over size limit
       if (stat.size > MAX_FILE_SIZE_BYTES) {
-        skipped.push({ path: entry, reason: `File too large (${(stat.size / 1024).toFixed(0)}KB)` });
+        skipped.push({
+          path: entry,
+          reason: `File too large (${(stat.size / 1024).toFixed(0)}KB)`,
+        });
         continue;
       }
 

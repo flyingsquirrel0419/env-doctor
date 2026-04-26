@@ -13,7 +13,9 @@ import path from 'node:path';
 
 const VERSION = '1.0.0';
 
-async function runScan(options: ScanOptions): Promise<{ result: import('./types.js').AnalysisResult; refs: EnvRef[] }> {
+async function runScan(
+  options: ScanOptions,
+): Promise<{ result: import('./types.js').AnalysisResult; refs: EnvRef[] }> {
   const start = performance.now();
 
   const walkResult = await walkDirectory(options.dir, { ignore: options.ignore });
@@ -140,7 +142,9 @@ program
     });
 
     console.log(`✅ Updated ${scanOptions.exampleFile}`);
-    console.log(`   ${result.summary.missing} missing, ${result.summary.unused} unused, ${result.summary.undocumented} undocumented`);
+    console.log(
+      `   ${result.summary.missing} missing, ${result.summary.unused} unused, ${result.summary.undocumented} undocumented`,
+    );
   });
 
 program.parse();

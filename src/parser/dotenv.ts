@@ -19,10 +19,7 @@ export interface DotenvParseResult {
 /**
  * Parse a single .env file content into variable definitions.
  */
-export function parseDotenvContent(
-  content: string,
-  sourcePath: string,
-): DotenvParseResult {
+export function parseDotenvContent(content: string, sourcePath: string): DotenvParseResult {
   const definitions: EnvDef[] = [];
   const errors: { line: number; message: string }[] = [];
   const lines = content.split('\n');
