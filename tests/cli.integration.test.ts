@@ -15,7 +15,7 @@ describe('CLI Integration', () => {
         { encoding: 'utf-8', timeout: 10000 },
       );
 
-      expect(result).toContain('env-doctor');
+      expect(result).toContain('env-doc');
       expect(result).toContain('scanned');
     });
 

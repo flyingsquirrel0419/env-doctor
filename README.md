@@ -1,24 +1,24 @@
 <div align="center">
 
-# 🩺 env-doctor
+# 🩺 env-doc
 
 **One command to catch every missing, unused, and undocumented `.env` variable.**
 
-[![npm version](https://img.shields.io/npm/v/env-doctor?style=flat-square)](https://www.npmjs.com/package/env-doctor)
-[![License](https://img.shields.io/github/license/env-doctor/env-doctor?style=flat-square)](LICENSE)
-[![Node](https://img.shields.io/node/v/env-doctor?style=flat-square)](https://nodejs.org)
+[![npm version](https://img.shields.io/npm/v/env-doc?style=flat-square)](https://www.npmjs.com/package/env-doc)
+[![License](https://img.shields.io/github/license/env-doc/env-doc?style=flat-square)](LICENSE)
+[![Node](https://img.shields.io/node/v/env-doc?style=flat-square)](https://nodejs.org)
 
 </div>
 
 ---
 
-## Why env-doctor?
+## Why env-doc?
 
-Every developer has deployed to production only to watch it crash because of a missing `.env` variable. `env-doctor scan` finds those variables **before** they cause downtime — and cleans up stale ones while it's at it.
+Every developer has deployed to production only to watch it crash because of a missing `.env` variable. `env-doc scan` finds those variables **before** they cause downtime — and cleans up stale ones while it's at it.
 
 Three problems, one command:
 
-| Problem | What happens | How env-doctor helps |
+| Problem | What happens | How env-doc helps |
 |---------|-------------|---------------------|
 | **Missing variables** | Code uses `DATABASE_URL` but `.env` doesn't have it | Detected as `❌ Missing` |
 | **Unused variables** | `.env` has `OLD_REDIS_URL` nobody uses anymore | Detected as `🗑️ Unused` |
@@ -28,11 +28,11 @@ Three problems, one command:
 
 ## ✨ Features
 
-- 🚀 **Zero config** — run `npx env-doctor` in any project directory
+- 🚀 **Zero config** — run `npx env-doc` in any project directory
 - 🔍 **Multi-language** — JavaScript, TypeScript, Python, Go, Ruby
 - 📊 **Structured output** — pretty terminal tables or JSON for tooling
 - 🔁 **Auto-generate `.env.example`** — keeps docs in sync with one command
-- 🤖 **CI-ready** — `env-doctor check` exits with code 1 on missing variables
+- 🤖 **CI-ready** — `env-doc check` exits with code 1 on missing variables
 - ⚡ **Fast** — scans hundreds of files in under 500ms
 
 ---
@@ -40,13 +40,13 @@ Three problems, one command:
 ## 🚀 Quick Start
 
 ```bash
-npx env-doctor scan
+npx env-doc scan
 ```
 
 That's it. No install needed.
 
 ```
-env-doctor v1.0.0  ·  scanned 47 files in 284ms
+env-doc v1.0.0  ·  scanned 47 files in 284ms
 
 ❌  Missing  (3)
    DATABASE_URL      src/db.ts:12, src/config.ts:8
@@ -64,7 +64,7 @@ env-doctor v1.0.0  ·  scanned 47 files in 284ms
    PORT, NODE_ENV, API_BASE_URL, ... (and 5 more)
 
 ────────────────────────────────────────
-Run `env-doctor generate` to update .env.example
+Run `env-doc generate` to update .env.example
 ```
 
 ---
@@ -73,59 +73,59 @@ Run `env-doctor generate` to update .env.example
 
 **Run without installing (recommended):**
 ```bash
-npx env-doctor scan
+npx env-doc scan
 ```
 
 **Install globally:**
 ```bash
-npm install -g env-doctor
+npm install -g env-doc
 ```
 
 **From source:**
 ```bash
-git clone https://github.com/env-doctor/env-doctor
-cd env-doctor && npm install && npm run build
+git clone https://github.com/env-doc/env-doc
+cd env-doc && npm install && npm run build
 ```
 
 ---
 
 ## 📖 Commands
 
-### `env-doctor scan`
+### `env-doc scan`
 
 Scan and report env variable issues. Always exits `0`.
 
 ```bash
-env-doctor scan                          # scan current directory
-env-doctor scan --dir ./src              # scan specific directory
-env-doctor scan --dotenv .env.local    # use specific .env file
-env-doctor scan --format json            # JSON output
-env-doctor scan --no-color               # disable colors
-env-doctor scan -i "**/vendor/**"        # ignore additional patterns
+env-doc scan                          # scan current directory
+env-doc scan --dir ./src              # scan specific directory
+env-doc scan --dotenv .env.local    # use specific .env file
+env-doc scan --format json            # JSON output
+env-doc scan --no-color               # disable colors
+env-doc scan -i "**/vendor/**"        # ignore additional patterns
 ```
 
-### `env-doctor check`
+### `env-doc check`
 
 Same as `scan`, but exits `1` if missing variables found. Perfect for CI.
 
 ```bash
-env-doctor check                         # fails on missing vars
-env-doctor check --strict                # also fail on unused/undocumented
+env-doc check                         # fails on missing vars
+env-doc check --strict                # also fail on unused/undocumented
 ```
 
 **CI example (GitHub Actions):**
 ```yaml
 - name: Check env variables
-  run: npx env-doctor check
+  run: npx env-doc check
 ```
 
-### `env-doctor generate`
+### `env-doc generate`
 
 Generate or update `.env.example` from scan results.
 
 ```bash
-env-doctor generate                      # creates/updates .env.example
-env-doctor generate --example .env.tmpl  # custom output path
+env-doc generate                      # creates/updates .env.example
+env-doc generate --example .env.tmpl  # custom output path
 ```
 
 ---
@@ -155,7 +155,7 @@ env-doctor generate --example .env.tmpl  # custom output path
 | Go | `os.Getenv("VAR")` |
 | Ruby | `ENV['VAR']`, `ENV.fetch('VAR')` |
 
-**Dynamic access warning:** Patterns like `process.env[dynamicKey]` can't be statically analyzed. env-doctor detects these and reports them as warnings.
+**Dynamic access warning:** Patterns like `process.env[dynamicKey]` can't be statically analyzed. env-doc detects these and reports them as warnings.
 
 ---
 
@@ -184,7 +184,7 @@ CLI Entry (Commander.js)
 ## 🧪 Development
 
 ```bash
-git clone https://github.com/env-doctor/env-doctor && cd env-doctor
+git clone https://github.com/env-doc/env-doc && cd env-doc
 npm install
 npm run build          # build first (required for integration tests)
 npm test               # run test suite
@@ -200,7 +200,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
 - [x] v1.0 — Core scan, check, generate commands
 - [ ] v1.1 — PHP and Rust extractors
-- [ ] v1.2 — `env-doctor.config.ts` support
+- [ ] v1.2 — `env-doc.config.ts` support
 - [ ] v2.0 — Monorepo multi-.env support, VSCode extension
 
 ---
@@ -218,5 +218,5 @@ Apache-2.0 — see [LICENSE](LICENSE) for details.
 ---
 
 <div align="center">
-Made with ❤️ for developers tired of "undefined is not a string" · <a href="https://github.com/env-doctor/env-doctor">Star this repo ⭐</a>
+Made with ❤️ for developers tired of "undefined is not a string" · <a href="https://github.com/env-doc/env-doc">Star this repo ⭐</a>
 </div>

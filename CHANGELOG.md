@@ -11,9 +11,9 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ### Added
 
-- `env-doctor scan` — scan project for env variable issues with text or JSON output
-- `env-doctor check` — CI-friendly command that exits 1 on missing variables
-- `env-doctor generate` — auto-generate or update `.env.example` from scan results
+- `env-doc scan` — scan project for env variable issues with text or JSON output
+- `env-doc check` — CI-friendly command that exits 1 on missing variables
+- `env-doc generate` — auto-generate or update `.env.example` from scan results
 - Language extractors for JavaScript/TypeScript, Python, Go, and Ruby
 - `.env` file parser with support for comments, quoted values, multiline values
 - Variable classification: missing, unused, undocumented, OK

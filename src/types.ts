@@ -1,5 +1,5 @@
 /**
- * Shared type definitions for env-doctor.
+ * Shared type definitions for env-doc.
  * All core data structures used across scanner, parser, analyzer, reporter.
  */
 
@@ -48,7 +48,7 @@ export interface VarInfo {
   documented: boolean;
 }
 
-/** The complete result of an env-doctor analysis */
+/** The complete result of an env-doc analysis */
 export interface AnalysisResult {
   /** All variables with their status */
   variables: VarInfo[];

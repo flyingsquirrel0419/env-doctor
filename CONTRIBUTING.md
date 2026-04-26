@@ -1,11 +1,11 @@
-# Contributing to env-doctor
+# Contributing to env-doc
 
 Thank you for your interest in contributing! 🎉
 
 ## Getting Started
 
 1. Fork the repo
-2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/env-doctor`
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/env-doc`
 3. Create a branch: `git checkout -b feature/your-feature-name`
 4. Make your changes (see Development Setup below)
 5. Push and open a Pull Request

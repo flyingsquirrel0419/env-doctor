@@ -10,7 +10,7 @@ labels: bug
 
 ## Steps to Reproduce
 
-1. Run `env-doctor ...`
+1. Run `env-doc ...`
 2. ...
 
 ## Expected Behavior
@@ -25,7 +25,7 @@ labels: bug
 
 - OS: [e.g., macOS 14.0, Ubuntu 22.04]
 - Node.js version: [e.g., 20.11.0]
-- env-doctor version: [e.g., 1.0.0]
+- env-doc version: [e.g., 1.0.0]
 - Project language(s): [e.g., TypeScript, Python]
 
 ## Additional Context
