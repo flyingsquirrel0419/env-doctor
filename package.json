@@ -1,5 +1,5 @@
 {
-  "name": "env-doc",
+  "name": "doc-env",
   "version": "1.0.0",
   "description": "Scan, analyze, and fix .env variable issues — missing, unused, and undocumented variables caught in one command.",
   "keywords": [
@@ -12,14 +12,14 @@
     "cli",
     "ci"
   ],
-  "author": "env-doc contributors",
+  "author": "doc-env contributors",
   "license": "Apache-2.0",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "env-doc": "./dist/cli.js"
+    "doc-env": "./dist/cli.js"
   },
   "exports": {
     ".": {
@@ -70,10 +70,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/flyingsquirrel0419/env-doc"
+    "url": "https://github.com/flyingsquirrel0419/doc-env"
   },
-  "homepage": "https://github.com/flyingsquirrel0419/env-doc#readme",
+  "homepage": "https://github.com/flyingsquirrel0419/doc-env#readme",
   "bugs": {
-    "url": "https://github.com/flyingsquirrel0419/env-doc/issues"
+    "url": "https://github.com/flyingsquirrel0419/doc-env/issues"
   }
 }
