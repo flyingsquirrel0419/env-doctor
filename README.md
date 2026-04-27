@@ -1,24 +1,24 @@
 <div align="center">
 
-# 🩺 doc-env
+# 🩺 dotenv-scan
 
 **One command to catch every missing, unused, and undocumented `.env` variable.**
 
-[![npm version](https://img.shields.io/npm/v/doc-env?style=flat-square)](https://www.npmjs.com/package/doc-env)
-[![License](https://img.shields.io/github/license/doc-env/doc-env?style=flat-square)](LICENSE)
-[![Node](https://img.shields.io/node/v/doc-env?style=flat-square)](https://nodejs.org)
+[![npm version](https://img.shields.io/npm/v/dotenv-scan?style=flat-square)](https://www.npmjs.com/package/dotenv-scan)
+[![License](https://img.shields.io/github/license/dotenv-scan/dotenv-scan?style=flat-square)](LICENSE)
+[![Node](https://img.shields.io/node/v/dotenv-scan?style=flat-square)](https://nodejs.org)
 
 </div>
 
 ---
 
-## Why doc-env?
+## Why dotenv-scan?
 
-Every developer has deployed to production only to watch it crash because of a missing `.env` variable. `doc-env scan` finds those variables **before** they cause downtime — and cleans up stale ones while it's at it.
+Every developer has deployed to production only to watch it crash because of a missing `.env` variable. `dotenv-scan scan` finds those variables **before** they cause downtime — and cleans up stale ones while it's at it.
 
 Three problems, one command:
 
-| Problem | What happens | How doc-env helps |
+| Problem | What happens | How dotenv-scan helps |
 |---------|-------------|---------------------|
 | **Missing variables** | Code uses `DATABASE_URL` but `.env` doesn't have it | Detected as `❌ Missing` |
 | **Unused variables** | `.env` has `OLD_REDIS_URL` nobody uses anymore | Detected as `🗑️ Unused` |
@@ -28,11 +28,11 @@ Three problems, one command:
 
 ## ✨ Features
 
-- 🚀 **Zero config** — run `npx doc-env` in any project directory
+- 🚀 **Zero config** — run `npx dotenv-scan` in any project directory
 - 🔍 **Multi-language** — JavaScript, TypeScript, Python, Go, Ruby
 - 📊 **Structured output** — pretty terminal tables or JSON for tooling
 - 🔁 **Auto-generate `.env.example`** — keeps docs in sync with one command
-- 🤖 **CI-ready** — `doc-env check` exits with code 1 on missing variables
+- 🤖 **CI-ready** — `dotenv-scan check` exits with code 1 on missing variables
 - ⚡ **Fast** — scans hundreds of files in under 500ms
 
 ---
@@ -40,13 +40,13 @@ Three problems, one command:
 ## 🚀 Quick Start
 
 ```bash
-npx doc-env scan
+npx dotenv-scan scan
 ```
 
 That's it. No install needed.
 
 ```
-doc-env v1.0.0  ·  scanned 47 files in 284ms
+dotenv-scan v1.0.0  ·  scanned 47 files in 284ms
 
 ❌  Missing  (3)
    DATABASE_URL      src/db.ts:12, src/config.ts:8
@@ -64,7 +64,7 @@ doc-env v1.0.0  ·  scanned 47 files in 284ms
    PORT, NODE_ENV, API_BASE_URL, ... (and 5 more)
 
 ────────────────────────────────────────
-Run `doc-env generate` to update .env.example
+Run `dotenv-scan generate` to update .env.example
 ```
 
 ---
@@ -73,59 +73,59 @@ Run `doc-env generate` to update .env.example
 
 **Run without installing (recommended):**
 ```bash
-npx doc-env scan
+npx dotenv-scan scan
 ```
 
 **Install globally:**
 ```bash
-npm install -g doc-env
+npm install -g dotenv-scan
 ```
 
 **From source:**
 ```bash
-git clone https://github.com/doc-env/doc-env
-cd doc-env && npm install && npm run build
+git clone https://github.com/dotenv-scan/dotenv-scan
+cd dotenv-scan && npm install && npm run build
 ```
 
 ---
 
 ## 📖 Commands
 
-### `doc-env scan`
+### `dotenv-scan scan`
 
 Scan and report env variable issues. Always exits `0`.
 
 ```bash
-doc-env scan                          # scan current directory
-doc-env scan --dir ./src              # scan specific directory
-doc-env scan --dotenv .env.local    # use specific .env file
-doc-env scan --format json            # JSON output
-doc-env scan --no-color               # disable colors
-doc-env scan -i "**/vendor/**"        # ignore additional patterns
+dotenv-scan scan                          # scan current directory
+dotenv-scan scan --dir ./src              # scan specific directory
+dotenv-scan scan --dotenv .env.local    # use specific .env file
+dotenv-scan scan --format json            # JSON output
+dotenv-scan scan --no-color               # disable colors
+dotenv-scan scan -i "**/vendor/**"        # ignore additional patterns
 ```
 
-### `doc-env check`
+### `dotenv-scan check`
 
 Same as `scan`, but exits `1` if missing variables found. Perfect for CI.
 
 ```bash
-doc-env check                         # fails on missing vars
-doc-env check --strict                # also fail on unused/undocumented
+dotenv-scan check                         # fails on missing vars
+dotenv-scan check --strict                # also fail on unused/undocumented
 ```
 
 **CI example (GitHub Actions):**
 ```yaml
 - name: Check env variables
-  run: npx doc-env check
+  run: npx dotenv-scan check
 ```
 
-### `doc-env generate`
+### `dotenv-scan generate`
 
 Generate or update `.env.example` from scan results.
 
 ```bash
-doc-env generate                      # creates/updates .env.example
-doc-env generate --example .env.tmpl  # custom output path
+dotenv-scan generate                      # creates/updates .env.example
+dotenv-scan generate --example .env.tmpl  # custom output path
 ```
 
 ---
@@ -155,7 +155,7 @@ doc-env generate --example .env.tmpl  # custom output path
 | Go | `os.Getenv("VAR")` |
 | Ruby | `ENV['VAR']`, `ENV.fetch('VAR')` |
 
-**Dynamic access warning:** Patterns like `process.env[dynamicKey]` can't be statically analyzed. doc-env detects these and reports them as warnings.
+**Dynamic access warning:** Patterns like `process.env[dynamicKey]` can't be statically analyzed. dotenv-scan detects these and reports them as warnings.
 
 ---
 
@@ -184,7 +184,7 @@ CLI Entry (Commander.js)
 ## 🧪 Development
 
 ```bash
-git clone https://github.com/doc-env/doc-env && cd doc-env
+git clone https://github.com/dotenv-scan/dotenv-scan && cd dotenv-scan
 npm install
 npm run build          # build first (required for integration tests)
 npm test               # run test suite
@@ -200,7 +200,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
 - [x] v1.0 — Core scan, check, generate commands
 - [ ] v1.1 — PHP and Rust extractors
-- [ ] v1.2 — `doc-env.config.ts` support
+- [ ] v1.2 — `dotenv-scan.config.ts` support
 - [ ] v2.0 — Monorepo multi-.env support, VSCode extension
 
 ---
@@ -218,5 +218,5 @@ Apache-2.0 — see [LICENSE](LICENSE) for details.
 ---
 
 <div align="center">
-Made with ❤️ for developers tired of "undefined is not a string" · <a href="https://github.com/doc-env/doc-env">Star this repo ⭐</a>
+Made with ❤️ for developers tired of "undefined is not a string" · <a href="https://github.com/dotenv-scan/dotenv-scan">Star this repo ⭐</a>
 </div>

@@ -22,7 +22,7 @@ export function formatTextReport(result: AnalysisResult, useColor: boolean): str
   const lines: string[] = [];
   const { summary, meta, dynamicAccessWarnings } = result;
 
-  lines.push(`doc-env v1.0.0  ·  scanned ${meta.filesScanned} files in ${meta.durationMs}ms`);
+  lines.push(`dotenv-scan v1.0.0  ·  scanned ${meta.filesScanned} files in ${meta.durationMs}ms`);
   lines.push('');
 
   const groups: Array<{
@@ -106,12 +106,12 @@ export function formatTextReport(result: AnalysisResult, useColor: boolean): str
   if (summary.missing > 0) {
     lines.push(
       c.red(
-        `Found ${summary.missing} missing variable(s). Run \`doc-env generate\` to update .env.example`,
+        `Found ${summary.missing} missing variable(s). Run \`dotenv-scan generate\` to update .env.example`,
       ),
     );
   } else if (summary.unused > 0 || summary.undocumented > 0) {
     lines.push(
-      c.yellow('Some variables need attention. Run `doc-env generate` to update .env.example'),
+      c.yellow('Some variables need attention. Run `dotenv-scan generate` to update .env.example'),
     );
   } else {
     lines.push(c.green('All environment variables are in sync! ✨'));

@@ -10,7 +10,7 @@ labels: bug
 
 ## Steps to Reproduce
 
-1. Run `doc-env ...`
+1. Run `dotenv-scan ...`
 2. ...
 
 ## Expected Behavior
@@ -25,7 +25,7 @@ labels: bug
 
 - OS: [e.g., macOS 14.0, Ubuntu 22.04]
 - Node.js version: [e.g., 20.11.0]
-- doc-env version: [e.g., 1.0.0]
+- dotenv-scan version: [e.g., 1.0.0]
 - Project language(s): [e.g., TypeScript, Python]
 
 ## Additional Context

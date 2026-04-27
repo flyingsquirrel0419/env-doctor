@@ -1,5 +1,5 @@
 /**
- * Shared type definitions for doc-env.
+ * Shared type definitions for dotenv-scan.
  * All core data structures used across scanner, parser, analyzer, reporter.
  */
 
@@ -48,7 +48,7 @@ export interface VarInfo {
   documented: boolean;
 }
 
-/** The complete result of an doc-env analysis */
+/** The complete result of an dotenv-scan analysis */
 export interface AnalysisResult {
   /** All variables with their status */
   variables: VarInfo[];

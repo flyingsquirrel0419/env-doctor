@@ -47,9 +47,9 @@ async function runScan(
 const program = new Command();
 
 program
-  .name('doc-env')
+  .name('dotenv-scan')
   .description('Scan, analyze, and fix .env variable issues')
-  .version(`doc-env v${VERSION}`);
+  .version(`dotenv-scan v${VERSION}`);
 
 program
   .command('scan')

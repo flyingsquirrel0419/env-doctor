@@ -1,5 +1,5 @@
 {
-  "name": "doc-env",
+  "name": "dotenv-scan",
   "version": "1.0.0",
   "description": "Scan, analyze, and fix .env variable issues — missing, unused, and undocumented variables caught in one command.",
   "keywords": [
@@ -12,14 +12,14 @@
     "cli",
     "ci"
   ],
-  "author": "doc-env contributors",
+  "author": "dotenv-scan contributors",
   "license": "Apache-2.0",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "doc-env": "./dist/cli.js"
+    "dotenv-scan": "./dist/cli.js"
   },
   "exports": {
     ".": {
@@ -70,10 +70,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/flyingsquirrel0419/doc-env"
+    "url": "https://github.com/flyingsquirrel0419/dotenv-scan"
   },
-  "homepage": "https://github.com/flyingsquirrel0419/doc-env#readme",
+  "homepage": "https://github.com/flyingsquirrel0419/dotenv-scan#readme",
   "bugs": {
-    "url": "https://github.com/flyingsquirrel0419/doc-env/issues"
+    "url": "https://github.com/flyingsquirrel0419/dotenv-scan/issues"
   }
 }

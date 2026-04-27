@@ -10,10 +10,10 @@
 
 **Do not report security vulnerabilities through GitHub Issues.**
 
-If you discover a security vulnerability in doc-env:
+If you discover a security vulnerability in dotenv-scan:
 
 1. **Email:** Open a GitHub Security Advisory (preferred) at
-   [github.com/doc-env/doc-env/security/advisories/new](https://github.com/doc-env/doc-env/security/advisories/new)
+   [github.com/dotenv-scan/dotenv-scan/security/advisories/new](https://github.com/dotenv-scan/dotenv-scan/security/advisories/new)
 
 2. **Include:**
    - Type of vulnerability
@@ -27,9 +27,9 @@ If you discover a security vulnerability in doc-env:
 
 ## Security Model
 
-doc-env is a **local-only CLI tool** with these security properties:
+dotenv-scan is a **local-only CLI tool** with these security properties:
 
-- **No network access** — doc-env never makes HTTP requests or phone-home calls
+- **No network access** — dotenv-scan never makes HTTP requests or phone-home calls
 - **No secret exfiltration** — the tool reads `.env` files but only outputs variable **names**, never values
 - **No arbitrary code execution** — pure regex-based scanning, no `eval` or `Function` constructors
 - **File system read-only** — `scan` and `check` only read files; `generate` writes only to `.env.example`
